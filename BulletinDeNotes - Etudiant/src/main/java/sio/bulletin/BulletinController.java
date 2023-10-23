@@ -176,12 +176,12 @@ public class BulletinController implements Initializable
                 HashMap<String, Integer> moyenneNotesParDevoirs = new HashMap<>();
 
                 for (String devoirs : lesBulletins.get(matieres).keySet()) {
-                    int nombreNote = 0;
+                    int nombreNote = 1;
                     for (String trimestre : lesBulletins.get(matieres).get(devoirs).keySet()) {
                         double moyenneDevoirs = 0;
                         for (Etudiant etudiant : lesBulletins.get(matieres).get(devoirs).get(trimestre)) {
-                            nombreNote += 1;
                             moyenneDevoirs = ( moyenneDevoirs + etudiant.getNote() ) / nombreNote;
+                            nombreNote = 2;
 
                         }
                         moyenneNotesParDevoirs.put(devoirs, (int) Math.round(moyenneDevoirs));
